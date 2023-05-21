@@ -1,24 +1,40 @@
-<!-- <p>
-  login works!
-</p> -->
+<!-- login.component.html -->
+<nav class="navbar navbar-expand-lg navbar-light">
+  <a class="navbar-brand" href="#">Tela de Login</a>
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav"
+    aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+  <div class="collapse navbar-collapse" id="navbarNav">
+    <ul class="navbar-nav ml-auto">
+      <li class="nav-item">
+        <a class="nav-link" (click)="matricula = 'secretaria'" [style]="matricula == 'secretaria'?'font-weight: 800;':''">Secretaria</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" (click)="matricula = 'professor'" [style]="matricula == 'professor'?'font-weight: 800;':''">Professor</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" (click)="matricula = 'aluno'" [style]="matricula == 'aluno'?'font-weight: 800;':''">Aluno</a>
+      </li>
+    </ul>
+  </div>
+</nav>
 
-<mat-toolbar color="primary">
-  <span>Selecione o tipo de login:</span>
-  <div class="spacer"></div>
-  <button mat-button [routerLink]="['/secretaria']">Secretaria</button>
-  <button mat-button [routerLink]="['/professor']">Professor</button>
-  <button mat-button [routerLink]="['/aluno']">Aluno</button>
-</mat-toolbar>
-
-<div class="login-container">
-  <mat-card>
-    <mat-card-content>
-      <h2>Login</h2>
-      <mat-form-field>
-        <input matInput placeholder="Matrícula" [(ngModel)]="matricula">
-      </mat-form-field>
-      <br>
-      <button mat-raised-button color="primary" (click)="fazerLogin()">Entrar</button>
-    </mat-card-content>
-  </mat-card>
+<div class="container mt-5">
+  <div class="row justify-content-center">
+    <div class="col-md-4">
+      <div class="card">
+        <div class="card-body">
+          <h4 class="card-title text-center">Login</h4>
+          <form>
+            <div class="form-group">
+              <label for="matricula">Matrícula</label>
+              <input type="text" class="form-control" id="matricula" placeholder="Digite sua matrícula">
+            </div>
+            <button style="margin-top: 1em;" type="submit" class="btn btn-primary btn-block">Entrar</button>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
 </div>

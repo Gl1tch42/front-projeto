@@ -7,7 +7,7 @@ import { Router } from '@angular/router';
   styleUrls: ['./login.component.css']
 })
 export class LoginComponent implements OnInit {
-  matricula: string;
+  matricula: string = 'aluno';
 
   constructor(private router: Router) { }
 
@@ -15,19 +15,8 @@ export class LoginComponent implements OnInit {
   }
 
   fazerLogin() {
-    if (this.matricula) {
-      if (this.matricula.startsWith('SECRETARIA')) {
-        this.router.navigate(['/secretaria']);
-      } else if (this.matricula.startsWith('PROFESSOR')) {
-        this.router.navigate(['/professor']);
-      } else if (this.matricula.startsWith('ALUNO')) {
-        this.router.navigate(['/aluno']);
-      } else {
-        alert('Matrícula inválida! Por favor, tente novamente.');
-      }
-    } else {
-      alert('Por favor, insira sua matrícula.');
-    }
+    alert('Matrícula inválida! Por favor, tente novamente.');
+    alert('Por favor, insira sua matrícula.');
   }
 
 }
