@@ -1,0 +1,38 @@
+<!-- sidebar.component.html -->
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+  <div class="container">
+    <div class="sidebar-profile">
+      <img class="profile-picture rounded-circle" src="path/to/profile-picture.jpg" alt="Profile Picture">
+      <div class="profile-info">
+        <h5 class="profile-name">John Doe</h5>
+        <p class="profile-matricula">Matrícula: 123456</p>
+      </div>
+    </div>
+
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#sidebarMenu"
+      aria-controls="sidebarMenu" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+
+    <div class="collapse navbar-collapse" id="sidebarMenu">
+      <ul class="navbar-nav flex-column">
+        <li class="nav-item">
+          <a class="nav-link" href="#">Item 1</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="#">Item 2</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="#">Item 3</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="#">Item 4</a>
+        </li>
+      </ul>
+    </div>
+
+    <div class="sidebar-footer">
+      <button class="btn btn-danger btn-block">Logout</button>
+    </div>
+  </div>
+</nav>
