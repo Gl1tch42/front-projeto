@@ -8,6 +8,9 @@ import { AppComponent } from './app.component';
 import { LoginModule } from './login/login.module';
 import { SistemaModule } from 'src/app/sistema/sistema.module'
 import { AppRoutingModule } from './app-routing.module';
+import { LoginService } from './login/login.service';
+
+import { HttpClientModule, HttpClient } from '@angular/common/http';
 
 @NgModule({
   declarations: [	
@@ -17,9 +20,10 @@ import { AppRoutingModule } from './app-routing.module';
     BrowserModule,
     AppRoutingModule,
     LoginModule,
-    SistemaModule
+    SistemaModule,
+    HttpClientModule
   ],
-  providers: [LocalstorageService, AuthService],
+  providers: [HttpClientModule, LocalstorageService, AuthService, LoginService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

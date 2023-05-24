@@ -29,9 +29,9 @@
           <form>
             <div class="form-group">
               <label for="matricula">Matrícula</label>
-              <input type="text" class="form-control" id="matricula" placeholder="Digite sua matrícula">
+              <input type="text" class="form-control" [(ngModel)]="login" placeholder="Digite sua matrícula">
             </div>
-            <button style="margin-top: 1em;" type="submit" class="btn btn-primary btn-block">Entrar</button>
+            <button style="margin-top: 1em;" type="submit" (click)="fazerLogin()" class="btn btn-primary btn-block">Entrar</button>
           </form>
         </div>
       </div>

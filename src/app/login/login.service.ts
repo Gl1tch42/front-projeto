@@ -1,5 +1,6 @@
 import { Injectable } from '@angular/core';
 import { HttpClient, HttpHeaders, HttpResponse } from '@angular/common/http';
+import { Observable } from 'rxjs';
 
 @Injectable({
   providedIn: 'root'
@@ -10,8 +11,8 @@ export class LoginService {
 
   constructor(private httpCliente: HttpClient,) { }
 
-  login(matricula, categoria) {
-
+  loginAluno(matricula): Observable<any> {
+    return this.httpCliente.post<any>(this.URL + "auth/LoginAluno", { matricula });
   }
 
 }
