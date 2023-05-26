@@ -11,6 +11,7 @@ import { AppRoutingModule } from './app-routing.module';
 import { LoginService } from './login/login.service';
 
 import { HttpClientModule, HttpClient } from '@angular/common/http';
+import { RouterModule } from '@angular/router';
 
 @NgModule({
   declarations: [	
@@ -21,7 +22,8 @@ import { HttpClientModule, HttpClient } from '@angular/common/http';
     AppRoutingModule,
     LoginModule,
     SistemaModule,
-    HttpClientModule
+    HttpClientModule,
+    RouterModule
   ],
   providers: [HttpClientModule, LocalstorageService, AuthService, LoginService],
   bootstrap: [AppComponent]

@@ -1,34 +1,13 @@
 @import './../../../../node_modules/bootstrap/dist/css/bootstrap.css';
-/* styles.css */
-.sidebar-profile {
-  display: flex;
-  align-items: center;
-  margin-bottom: 20px;
-  padding: 0 20px;
+
+.navbar-brand img {
+  width: 40px;
+  height: 40px;
 }
 
 .profile-picture {
-  width: 50px;
-  height: 50px;
-}
-
-.profile-info {
-  margin-left: 10px;
-}
-
-.profile-name {
-  margin: 0;
-  color: #fff;
-}
-
-.profile-matricula {
-  margin: 0;
-  color: #ccc;
-}
-
-.sidebar-footer {
-  position: fixed;
-  bottom: 20px;
-  width: 100%;
-  padding: 0 20px;
+  width: 30px;
+  height: 30px;
+  border-radius: 50%;
+  margin-right: 5px;
 }

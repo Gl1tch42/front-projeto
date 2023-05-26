@@ -29,7 +29,7 @@
           <form>
             <div class="form-group">
               <label for="matricula">Matrícula</label>
-              <input type="text" class="form-control" [(ngModel)]="login" placeholder="Digite sua matrícula">
+              <input type="text" class="form-control" [(ngModel)]="login" placeholder="Digite sua matrícula" [ngModelOptions]="{standalone: true}">
             </div>
             <button style="margin-top: 1em;" type="submit" (click)="fazerLogin()" class="btn btn-primary btn-block">Entrar</button>
           </form>

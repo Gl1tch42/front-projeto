@@ -15,4 +15,12 @@ export class LoginService {
     return this.httpCliente.post<any>(this.URL + "auth/LoginAluno", { matricula });
   }
 
+  loginProfessor(matricula): Observable<any> {
+    return this.httpCliente.post<any>(this.URL + "auth/loginProfessor", { matricula });
+  }
+
+  loginSecretaria(matricula): Observable<any> {
+    return this.httpCliente.post<any>(this.URL + "auth/loginSecretaria", { matricula });
+  }
+
 }
