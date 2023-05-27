@@ -27,8 +27,8 @@ export class LoginComponent implements OnInit {
       this.loginService.loginAluno(this.login).subscribe(arg => {
         console.log(arg)
         this.localstorageService.saveToken(arg.accessToken)
-        this.localstorageService.saveUser(arg.aluno)
-        this.router.navigate(['/home']);
+        this.localstorageService.saveUser(arg.user)
+        this.router.navigate(['/sistema/perfil']);
       }, error => alert('Matrícula inválida! Por favor, tente novamente.')
       );
 
@@ -36,8 +36,8 @@ export class LoginComponent implements OnInit {
       this.loginService.loginSecretaria(this.login).subscribe(arg => {
         console.log(arg)
         this.localstorageService.saveToken(arg.accessToken)
-        this.localstorageService.saveUser(arg.aluno)
-        this.router.navigate(['/home']);
+        this.localstorageService.saveUser(arg.user)
+        this.router.navigate(['/sistema/perfil']);
       }, error => alert('Matrícula inválida! Por favor, tente novamente.')
       );
 
@@ -45,8 +45,8 @@ export class LoginComponent implements OnInit {
       this.loginService.loginProfessor(this.login).subscribe(arg => {
         console.log(arg)
         this.localstorageService.saveToken(arg.accessToken)
-        this.localstorageService.saveUser(arg.aluno)
-        this.router.navigate(['/home']);
+        this.localstorageService.saveUser(arg.user)
+        this.router.navigate(['/sistema/perfil']);
       }, error => alert('Matrícula inválida! Por favor, tente novamente.')
       );
 

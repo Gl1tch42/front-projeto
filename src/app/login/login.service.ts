@@ -23,4 +23,8 @@ export class LoginService {
     return this.httpCliente.post<any>(this.URL + "auth/loginSecretaria", { matricula });
   }
 
+  logout(): Observable<any> {
+    return this.httpCliente.post<any>(this.URL + "auth/loginSecretaria", {  });
+  }
+
 }
