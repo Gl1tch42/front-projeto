@@ -1,3 +1,19 @@
-<p>
-  perfil works!
-</p>
+<div style="display: flex;justify-content: center;">
+<div class="profile">
+  <h2>Perfil</h2>
+  <div class="profile-info">
+    <div class="profile-photo">
+      <img src="https://i.stack.imgur.com/lAwxR.png" alt="Foto do perfil" class="rounded-circle">
+    </div>
+    <div class="profile-details">
+      <h3>{{ profile.name }}</h3>
+      <p>Matrícula: {{ profile.registration }}</p>
+      <p>Endereço: {{ profile.address }}</p>
+      <p>Email: {{ profile.email }}</p>
+      <p>Número: {{ profile.number }}</p>
+      <p *ngIf="profile.type === 'aluno'">Turma: {{ profile.classroom }}</p>
+      <p *ngIf="profile.type === 'professor'">Disciplina: {{ profile.subject }}</p>
+    </div>
+  </div>
+</div>
+</div>

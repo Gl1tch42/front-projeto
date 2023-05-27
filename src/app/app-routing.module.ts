@@ -11,7 +11,7 @@ const routes: Routes = [
   { path: 'sistema', component: SistemaComponent, canActivate: [AuthService], children: [
     { path: 'perfil', component: PerfilComponent },
   ] },
-  { path: 'home', component: SistemaComponent, canActivate: [AuthService] },
+  // { path: 'home', component: SistemaComponent, canActivate: [AuthService] },
   { path: '',   redirectTo: '/login', pathMatch: 'full' }
 
 ];
