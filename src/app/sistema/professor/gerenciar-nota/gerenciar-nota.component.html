@@ -1,0 +1,61 @@
+<div class="container" style="width: 100%;">
+  <h1>Gerenciamento de Notas</h1>
+  <div class="row">
+    <div class="col-md-4" *ngIf="this.turmaSelecionada == null;">
+      <h3>Turmas</h3>
+      <ul class="list-group">
+        <li class="list-group-item" *ngFor="let turma of turmas" (click)="selecionarTurma(turma)">
+          {{ turma.nome }}
+        </li>
+      </ul>
+    </div>
+
+    <div style="display: flex; justify-content: space-between;" *ngIf="turmaSelecionada">
+      <h3>Notas da Turma: {{ turmaSelecionada.nome }}</h3>
+      <button class="btn btn-secondary mt-3" (click)="voltar()">Voltar</button>
+    </div>
+
+    <div class="col-md-8" *ngIf="turmaSelecionada">
+
+      <table class="table">
+        <thead>
+          <tr>
+            <th>Aluno</th>
+            <th>Matrícula</th>
+            <th>1º Bimestre</th>
+            <th>2º Bimestre</th>
+            <th>3º Bimestre</th>
+            <th>4º Bimestre</th>
+            <th>Recuperação</th>
+            <th>Nota Final</th>
+            <th>Status</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let aluno of turmaSelecionada.alunos">
+            <td>{{ aluno.nome }}</td>
+            <td>{{ aluno.matricula }}</td>
+            <td><input style="width: 8em;" type="number" min="0" max="10" pattern="[0-9]*" [(ngModel)]="aluno.notas.primeiroBimestre"
+                (keyup)="calcularNotaFinal(aluno, $event, 'primeiroBimestre')" [value]="aluno.notas.primeiroBimestre"></td>
+
+            <td><input style="width: 8em;" type="number" min="0" max="10" pattern="[0-9]*" [(ngModel)]="aluno.notas.segundoBimestre"
+                (keyup)="calcularNotaFinal(aluno, $event, 'segundoBimestre')" [value]="aluno.notas.segundoBimestre"></td>
+
+            <td><input style="width: 8em;" type="number" min="0" max="10" pattern="[0-9]*" [(ngModel)]="aluno.notas.terceiroBimestre"
+                (keyup)="calcularNotaFinal(aluno, $event, 'terceiroBimestre')" [value]="aluno.notas.terceiroBimestre"></td>
+
+            <td><input style="width: 8em;" type="number" min="0" max="10" pattern="[0-9]*" [(ngModel)]="aluno.notas.quartoBimestre"
+                (keyup)="calcularNotaFinal(aluno, $event, 'quartoBimestre')" [value]="aluno.notas.quartoBimestre"></td>
+
+            <td><input style="width: 8em;" type="number" min="0" max="10" pattern="[0-9]*" [(ngModel)]="aluno.notas.recuperacao"
+                (keyup)="calcularNotaFinal(aluno, $event, 'recuperacao')" [value]="aluno.notas.recuperacao"
+                [disabled]="((calcularMedia(aluno) >= 7 || calcularMedia(aluno) <= 3 ) && aluno.notas.recuperacao == 0)" pattern="[0-9]*">
+            </td>
+            <td>{{ calcularMedia(aluno) }}</td>
+            <td>{{ calcularStatus(aluno) }}</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</div>

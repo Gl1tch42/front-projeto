@@ -5,11 +5,13 @@ import { LoginComponent } from './login/login.component';
 import { SistemaComponent } from 'src/app/sistema/sistema.component';
 import { AuthService } from './auth/auth.service';
 import { PerfilComponent } from './sistema/perfil/perfil.component';
+import { GerenciarNotaComponent } from 'src/app/sistema/professor/gerenciar-nota/gerenciar-nota.component';
 
 const routes: Routes = [
   { path: 'login', component: LoginComponent },
   { path: 'sistema', component: SistemaComponent, canActivate: [AuthService], children: [
     { path: 'perfil', component: PerfilComponent },
+    {path: 'GerenciarNota', component: GerenciarNotaComponent}
   ] },
   // { path: 'home', component: SistemaComponent, canActivate: [AuthService] },
   { path: '',   redirectTo: '/login', pathMatch: 'full' }

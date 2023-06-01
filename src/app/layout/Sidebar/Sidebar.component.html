@@ -16,7 +16,7 @@
 
       <ul *ngIf="this.visao == 'aluno'" class="navbar-nav me-auto mb-2 mb-lg-0">
         <li class="nav-item">
-          <a class="nav-link active" aria-current="page">perfil</a>
+          <a class="nav-link active" [routerLink]="['/sistema/perfil']" aria-current="page">perfil</a>
         </li>
         <li class="nav-item">
           <a class="nav-link">Boletim</a>
@@ -28,10 +28,10 @@
 
       <ul *ngIf="this.visao == 'professor'" class="navbar-nav me-auto mb-2 mb-lg-0">
         <li class="nav-item">
-          <a class="nav-link active" aria-current="page">perfil</a>
+          <a class="nav-link active" [routerLink]="['/sistema/perfil']" aria-current="page">perfil</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link">Notas</a>
+          <a class="nav-link" [routerLink]="['/sistema/GerenciarNota']" >notas</a>
         </li>
         <li class="nav-item">
           <a class="nav-link">aulas</a>
@@ -42,7 +42,7 @@
       <ul *ngIf="this.visao == 'administrador'" class="navbar-nav me-auto mb-2 mb-lg-0">
 
         <li class="nav-item">
-          <a class="nav-link">perfil</a>
+          <a class="nav-link" [routerLink]="['/sistema/perfil']" >perfil</a>
         </li>
 
         <li class="nav-item">

@@ -4,13 +4,17 @@ import { SistemaComponent } from './sistema.component';
 import { SidebarComponent } from 'src/app/layout/Sidebar/Sidebar.component';
 import { RouterModule } from '@angular/router';
 import { PerfilComponent } from 'src/app/sistema/perfil/perfil.component';
+import { GerenciarNotaComponent } from 'src/app/sistema/professor/gerenciar-nota/gerenciar-nota.component';
+import { FormsModule } from '@angular/forms';
+import { HttpClientModule } from '@angular/common/http';
 
 @NgModule({
   imports: [
     CommonModule,
-    RouterModule
+    RouterModule,
+    HttpClientModule
   ],
-  declarations: [SistemaComponent, SidebarComponent, PerfilComponent],
+  declarations: [SistemaComponent, SidebarComponent, PerfilComponent, GerenciarNotaComponent],
   exports: [SistemaComponent]
 })
 export class SistemaModule { }
