@@ -5,19 +5,28 @@ interface Aluno {
   nome: string;
   matricula: string;
   notas: {
-    primeiroBimestre: number;
-    segundoBimestre: number;
-    terceiroBimestre: number;
-    quartoBimestre: number;
-    recuperacao: number;
-    notaFinal: number;
+    primeiroBimestre: any;
+    segundoBimestre: any;
+    terceiroBimestre: any;
+    quartoBimestre: any;
+    recuperacao: any;
+    notaFinal: any;
     status: string;
   };
 }
 
 interface Turma {
   nome: string;
+  id: number;
   alunos: Aluno[];
+}
+
+interface NotaSaved {
+  nota: string;
+  periodo: string;
+  id_disciplina: number;
+  id_professor: number;
+  id_aluno: any;
 }
 
 
@@ -54,26 +63,42 @@ export class GerenciarNotaComponent implements OnInit {
   }
 
   calcularNotaFinal(aluno: Aluno, event, periodo) {
-    console.log(aluno)
     const indexTurmas = this.turmas.findIndex(x => x == this.turmaSelecionada);
     const indexAluno = this.turmas[indexTurmas].alunos.findIndex(x => x == aluno);
     console.log(event.target.value)
+    if(event.target.value == "")event.target.value = 0;
+    if(parseFloat(event.target.value) > 10) event.target.value = 10;
+    if(parseFloat(event.target.value) < 0) event.target.value = 0
+    
     this.turmas[indexTurmas].alunos[indexAluno].notas[periodo] = parseFloat(event.target.value);
+
+
+    let nota: NotaSaved = {
+      id_aluno: aluno.matricula,
+      nota: event.target.value,
+      periodo: periodo,
+      id_disciplina: 0,
+      id_professor: 0
+    };
+
+    this.gerenciarNotaService.salvarNota(nota).subscribe(res => {
+      console.log(res)
+    })
   }
 
   calcularMedia(aluno: Aluno) {
     const { primeiroBimestre, segundoBimestre, terceiroBimestre, quartoBimestre, recuperacao } = aluno.notas;
-    let notaFinal = (primeiroBimestre + segundoBimestre + terceiroBimestre + quartoBimestre) / 4;
-    if(recuperacao > notaFinal) notaFinal = recuperacao;
+    let notaFinal = (parseFloat(primeiroBimestre) + parseFloat(segundoBimestre) + parseFloat(terceiroBimestre) + parseFloat(quartoBimestre)) / 4;
+    if(parseFloat(recuperacao) > notaFinal) notaFinal = parseFloat(recuperacao);
     return notaFinal;
   }
 
   calcularStatus(aluno: Aluno) {
     const { primeiroBimestre, segundoBimestre, terceiroBimestre, quartoBimestre, recuperacao } = aluno.notas;
-    aluno.notas.notaFinal = (primeiroBimestre + segundoBimestre + terceiroBimestre + quartoBimestre) / 4;
+    aluno.notas.notaFinal = (parseFloat(primeiroBimestre) + parseFloat(segundoBimestre) + parseFloat(terceiroBimestre) + parseFloat(quartoBimestre)) / 4;
 
-    if (recuperacao > aluno.notas.notaFinal){
-      aluno.notas.notaFinal = recuperacao;
+    if (parseFloat(recuperacao) > aluno.notas.notaFinal){
+      aluno.notas.notaFinal = parseFloat(recuperacao);
     }
 
     if (aluno.notas.notaFinal >= 7) {
