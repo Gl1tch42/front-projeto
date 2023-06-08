@@ -10,6 +10,8 @@ import { SistemaModule } from 'src/app/sistema/sistema.module'
 import { AppRoutingModule } from './app-routing.module';
 import { LoginService } from './login/login.service';
 import { GerenciarNotaService } from 'src/app/sistema/professor/gerenciar-nota/gerenciar-nota.service';
+import { VisualizarAulasService } from 'src/app/sistema/professor/visualizar-aulas-disponiveis/visualizar-aulas.service';
+
 
 import { HttpClientModule, HttpClient } from '@angular/common/http';
 import { RouterModule } from '@angular/router';
@@ -26,7 +28,7 @@ import { RouterModule } from '@angular/router';
     HttpClientModule,
     RouterModule
   ],
-  providers: [HttpClientModule, LocalstorageService, AuthService, LoginService, GerenciarNotaService],
+  providers: [HttpClientModule, LocalstorageService, AuthService, LoginService, GerenciarNotaService, VisualizarAulasService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
