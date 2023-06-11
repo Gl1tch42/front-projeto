@@ -6,8 +6,11 @@ import { RouterModule } from '@angular/router';
 import { PerfilComponent } from 'src/app/sistema/perfil/perfil.component';
 import { GerenciarNotaComponent } from 'src/app/sistema/professor/gerenciar-nota/gerenciar-nota.component';
 import { VisualizarAulasDisponiveisComponent } from 'src/app/sistema/professor/visualizar-aulas-disponiveis/visualizar-aulas-disponiveis.component';
+import { BoletimEscolarComponent } from "src/app/sistema/aluno/boletim-escolar/boletim-escolar.component";
+
 import { FormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
+
 
 @NgModule({
   imports: [
@@ -15,7 +18,14 @@ import { HttpClientModule } from '@angular/common/http';
     RouterModule,
     HttpClientModule
   ],
-  declarations: [SistemaComponent, SidebarComponent, PerfilComponent, GerenciarNotaComponent, VisualizarAulasDisponiveisComponent],
+  declarations: [
+    SistemaComponent, 
+    SidebarComponent, 
+    PerfilComponent, 
+    GerenciarNotaComponent, 
+    VisualizarAulasDisponiveisComponent, 
+    BoletimEscolarComponent
+  ],
   exports: [SistemaComponent]
 })
 export class SistemaModule { }

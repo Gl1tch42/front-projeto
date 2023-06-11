@@ -1,0 +1,30 @@
+<div class="container">
+  <h2>Boletim Escolar</h2>
+  <h3>{{ aluno }}</h3>
+  <table class="table table-bordered">
+    <thead>
+      <tr>
+        <th>Matéria</th>
+        <th>1º Bimestre</th>
+        <th>2º Bimestre</th>
+        <th>3º Bimestre</th>
+        <th>4º Bimestre</th>
+        <th>Recuperação</th>
+        <th>Média Final</th>
+        <th> Status </th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let disciplina of disciplinas">
+        <td>{{ disciplina.nome }}</td>
+        <td>{{ disciplina.bimestre1 || '--' }}</td>
+        <td>{{ disciplina.bimestre2 || '--' }}</td>
+        <td>{{ disciplina.bimestre3 || '--' }}</td>
+        <td>{{ disciplina.bimestre4 || '--' }}</td>
+        <td>{{ disciplina.recuperacao || '--' }}</td>
+        <td>{{ calcularMediaFinal(disciplina) }}</td>
+        <td>{{ calcularStaus(calcularMediaFinal(disciplina), disciplina) }}</td>
+      </tr>
+    </tbody>
+  </table>
+</div>
