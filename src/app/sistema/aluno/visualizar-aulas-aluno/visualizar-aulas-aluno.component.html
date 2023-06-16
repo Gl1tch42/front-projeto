@@ -1,0 +1,22 @@
+<table *ngIf="this.aulasSemana.length"  class="table table-bordered table-striped" style="margin-left: 4em; width: 90%; margin-top: 4em;">
+  <thead>
+    <tr>
+      <th></th>
+      <th *ngFor="let dia of diasSemana">{{ dia }}</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let horario of horarios">
+      <td>{{ horario }}</td>
+      <td *ngFor="let dia of diasSemana" [ngClass]="{'aula-vazia': !getAula(dia, horario)}">
+        <ng-container *ngIf="getAula(dia, horario)">
+          <div>{{ getAula(dia, horario)?.disciplina }}</div>
+          <div>{{ getAula(dia, horario)?.professor }}</div>
+        </ng-container>
+        <ng-container *ngIf="!getAula(dia, horario)">
+          -
+        </ng-container>
+      </td>
+    </tr>
+  </tbody>
+</table>

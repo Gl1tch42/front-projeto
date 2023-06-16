@@ -10,6 +10,7 @@ import { BoletimEscolarComponent } from "src/app/sistema/aluno/boletim-escolar/b
 
 import { FormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
+import { VisualizarAulasAlunoComponent } from './aluno/visualizar-aulas-aluno/visualizar-aulas-aluno.component';
 
 
 @NgModule({
@@ -24,7 +25,8 @@ import { HttpClientModule } from '@angular/common/http';
     PerfilComponent, 
     GerenciarNotaComponent, 
     VisualizarAulasDisponiveisComponent, 
-    BoletimEscolarComponent
+    BoletimEscolarComponent,
+    VisualizarAulasAlunoComponent
   ],
   exports: [SistemaComponent]
 })

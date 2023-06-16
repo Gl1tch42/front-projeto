@@ -8,6 +8,7 @@ import { PerfilComponent } from './sistema/perfil/perfil.component';
 import { GerenciarNotaComponent } from 'src/app/sistema/professor/gerenciar-nota/gerenciar-nota.component';
 import { VisualizarAulasDisponiveisComponent } from './sistema/professor/visualizar-aulas-disponiveis/visualizar-aulas-disponiveis.component';
 import { BoletimEscolarComponent } from './sistema/aluno/boletim-escolar/boletim-escolar.component';
+import { VisualizarAulasAlunoComponent } from './sistema/aluno/visualizar-aulas-aluno/visualizar-aulas-aluno.component';
 
 const routes: Routes = [
   { path: 'login', component: LoginComponent },
@@ -15,7 +16,8 @@ const routes: Routes = [
     { path:'perfil', component: PerfilComponent },
     { path: 'GerenciarNota', component: GerenciarNotaComponent },
     { path: 'visualizarAula', component: VisualizarAulasDisponiveisComponent },
-    { path: 'boletim', component: BoletimEscolarComponent }
+    { path: 'boletim', component: BoletimEscolarComponent },
+    { path: 'visualizarAulaAluno', component: VisualizarAulasAlunoComponent },
     
   ] },
   // { path: 'home', component: SistemaComponent, canActivate: [AuthService] },

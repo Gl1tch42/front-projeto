@@ -12,7 +12,7 @@ import { LoginService } from './login/login.service';
 import { GerenciarNotaService } from 'src/app/sistema/professor/gerenciar-nota/gerenciar-nota.service';
 import { VisualizarAulasService } from 'src/app/sistema/professor/visualizar-aulas-disponiveis/visualizar-aulas.service';
 import { BoletimEscolarService } from "src/app/sistema/aluno/boletim-escolar/boletim-escolar.service";
-
+import { VizualizarAulasAlunoService } from 'src/app/sistema/aluno/visualizar-aulas-aluno/vizualizar-aulas-aluno.service'
 import { HttpClientModule, HttpClient } from '@angular/common/http';
 import { RouterModule } from '@angular/router';
 
@@ -28,7 +28,7 @@ import { RouterModule } from '@angular/router';
     HttpClientModule,
     RouterModule
   ],
-  providers: [HttpClientModule, LocalstorageService, AuthService, LoginService, GerenciarNotaService, VisualizarAulasService, BoletimEscolarService],
+  providers: [HttpClientModule, LocalstorageService, AuthService, LoginService, GerenciarNotaService, VisualizarAulasService, BoletimEscolarService, VizualizarAulasAlunoService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
