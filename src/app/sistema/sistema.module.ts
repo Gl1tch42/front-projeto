@@ -8,6 +8,13 @@ import { GerenciarNotaComponent } from 'src/app/sistema/professor/gerenciar-nota
 import { VisualizarAulasDisponiveisComponent } from 'src/app/sistema/professor/visualizar-aulas-disponiveis/visualizar-aulas-disponiveis.component';
 import { BoletimEscolarComponent } from "src/app/sistema/aluno/boletim-escolar/boletim-escolar.component";
 
+import { GerenciarTurmaComponent } from 'src/app/sistema/secretaria/gerenciar-turma/gerenciar-turma.component';
+import { GerenciarProfessorComponent } from 'src/app/sistema/secretaria/gerenciar-professor/gerenciar-professor.component';
+import { GerenciarAlunoComponent } from 'src/app/sistema/secretaria/gerenciar-aluno/gerenciar-aluno.component';
+import { GerenciarAulaComponent } from 'src/app/sistema/secretaria/gerenciar-aula/gerenciar-aula.component';
+
+
+
 import { FormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
 import { VisualizarAulasAlunoComponent } from './aluno/visualizar-aulas-aluno/visualizar-aulas-aluno.component';
@@ -26,7 +33,12 @@ import { VisualizarAulasAlunoComponent } from './aluno/visualizar-aulas-aluno/vi
     GerenciarNotaComponent, 
     VisualizarAulasDisponiveisComponent, 
     BoletimEscolarComponent,
-    VisualizarAulasAlunoComponent
+    VisualizarAulasAlunoComponent,
+
+    GerenciarTurmaComponent,
+    GerenciarProfessorComponent,
+    GerenciarAlunoComponent,
+    GerenciarAulaComponent
   ],
   exports: [SistemaComponent]
 })

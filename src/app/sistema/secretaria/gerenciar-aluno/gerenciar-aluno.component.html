@@ -1,0 +1,86 @@
+<div>
+  <h2>Gerenciamento de Alunos</h2>
+
+  <table class="table table-striped">
+    <thead>
+      <tr>
+        <th>Email</th>
+        <th>Nome</th>
+        <th>Endereço</th>
+        <th>Telefone</th>
+        <th>Ações</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let aluno of alunos">
+        <td>{{ aluno.email }}</td>
+        <td>{{ aluno.nm_aluno }}</td>
+        <td>{{ aluno.endereco }}</td>
+        <td>{{ aluno.telefone }}</td>
+        <td>
+          <button (click)="editarAluno(aluno)" class="btn btn-primary" *ngIf="!editMode">Editar</button>
+          <button (click)="excluirAluno(aluno)" class="btn btn-danger">Excluir</button>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+
+  <hr>
+
+  <h3>Adicionar Aluno</h3>
+
+  <div class="card">
+    <div class="card-body">
+      <div *ngIf="!editMode">
+        <div class="form-group">
+          <label>Email:</label>
+          <input [(ngModel)]="novoAluno.email" type="text" class="form-control">
+        </div>
+
+        <div class="form-group">
+          <label>Nome:</label>
+          <input [(ngModel)]="novoAluno.nm_aluno" type="text" class="form-control">
+        </div>
+
+        <div class="form-group">
+          <label>Endereço:</label>
+          <input [(ngModel)]="novoAluno.endereco" type="text" class="form-control">
+        </div>
+
+        <div class="form-group">
+          <label>Telefone:</label>
+          <input [(ngModel)]="novoAluno.telefone" type="text" class="form-control">
+        </div>
+
+        <button (click)="adicionarAluno()" class="btn btn-success">Adicionar</button>
+      </div>
+
+      <div *ngIf="editMode">
+        <h4>Editando Aluno</h4>
+
+        <div class="form-group">
+          <label>Email:</label>
+          <input [(ngModel)]="alunoEmEdicao.email" type="text" class="form-control">
+        </div>
+
+        <div class="form-group">
+          <label>Nome:</label>
+          <input [(ngModel)]="alunoEmEdicao.nm_aluno" type="text" class="form-control">
+        </div>
+
+        <div class="form-group">
+          <label>Endereço:</label>
+          <input [(ngModel)]="alunoEmEdicao.endereco" type="text" class="form-control">
+        </div>
+
+        <div class="form-group">
+          <label>Telefone:</label>
+          <input [(ngModel)]="alunoEmEdicao.telefone" type="text" class="form-control">
+        </div>
+
+        <button (click)="salvarEdicao()" class="btn btn-primary">Salvar</button>
+        <button (click)="cancelarEdicao()" class="btn btn-secondary">Cancelar</button>
+      </div>
+    </div>
+  </div>
+</div>
