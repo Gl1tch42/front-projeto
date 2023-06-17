@@ -9,6 +9,7 @@ import { GerenciarNotaComponent } from 'src/app/sistema/professor/gerenciar-nota
 import { VisualizarAulasDisponiveisComponent } from './sistema/professor/visualizar-aulas-disponiveis/visualizar-aulas-disponiveis.component';
 import { BoletimEscolarComponent } from './sistema/aluno/boletim-escolar/boletim-escolar.component';
 import { VisualizarAulasAlunoComponent } from './sistema/aluno/visualizar-aulas-aluno/visualizar-aulas-aluno.component';
+import { GerenciarAlunoComponent } from './sistema/secretaria/gerenciar-aluno/gerenciar-aluno.component';
 
 const routes: Routes = [
   { path: 'login', component: LoginComponent },
@@ -18,6 +19,9 @@ const routes: Routes = [
     { path: 'visualizarAula', component: VisualizarAulasDisponiveisComponent },
     { path: 'boletim', component: BoletimEscolarComponent },
     { path: 'visualizarAulaAluno', component: VisualizarAulasAlunoComponent },
+
+    { path: 'gerenciar-alunos', component: GerenciarAlunoComponent },
+
     
   ] },
   // { path: 'home', component: SistemaComponent, canActivate: [AuthService] },
