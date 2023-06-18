@@ -11,26 +11,55 @@ export class SecretariaService {
   constructor(private httpCliente: HttpClient, private localstorageService: LocalstorageService) { }
 
   //Aluno
-  buscarAluno(): Observable<any> {
-    return this.httpCliente.get<any>(URL+'aluno/BuscarAlunos');
+  getAlunos(): Observable<any> {
+    return this.httpCliente.get<any>(this.URL + 'aluno/BuscarAlunos');
   }
 
   //controle
 
-  addAluno(aluno): Observable<any> {
-    return this.httpCliente.post<any>(URL+'aluno/InserirAluno', {aluno:aluno});
+  addAluno(aluno: Aluno): Observable<any> {
+    return this.httpCliente.post<any>(this.URL+'aluno/InserirAluno', {aluno:aluno});
   }
 
-  editarAluno(aluno): Observable<any> {
-    return this.httpCliente.post<any>(URL+'aluno/UpdateAluno',{ aluno: aluno });
+  editarAluno(aluno: Aluno): Observable<any> {
+    return this.httpCliente.post<any>(this.URL+'aluno/UpdateAluno',{ aluno: aluno });
   }
 
   excluirAluno(id): Observable<any> {
-    return this.httpCliente.post<any>(URL+'aluno/DeletarAluno', { id: id });
+    return this.httpCliente.post<any>(this.URL+'aluno/DeletarAluno', { id: id });
   }
   //
 
   //professor
   //controle
   //
+
+  //turma
+  getTurmas(): Observable<any> {
+    return this.httpCliente.get<any>(this.URL + 'turmas/BuscarTurmas');
+  }
+
+  //controle
+
+  addTurmas(turma): Observable<any> {
+    return this.httpCliente.post<any>(this.URL+'turmas/InserirTurma', { turma : turma });
+  }
+
+  editarTurmas(turma): Observable<any> {
+    return this.httpCliente.post<any>(this.URL+'turmas/UpdateTurma',{ turma: turma });
+  }
+
+  excluirTurma(id): Observable<any> {
+    return this.httpCliente.post<any>(this.URL+'turmas/DeletarTurma', { id: id });
+  }
+  //
+}
+
+interface Aluno {
+  email: string;
+  id_aluno: number;
+  nm_aluno: string;
+  endereco: string;
+  telefone: string;
+  id_turmas: number;
 }

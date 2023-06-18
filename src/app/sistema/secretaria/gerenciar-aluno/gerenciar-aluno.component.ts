@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { SecretariaService } from '../secretaria.service';
 
 @Component({
   selector: 'app-gerenciar-aluno',
@@ -8,47 +9,54 @@ import { Component, OnInit } from '@angular/core';
 
 export class GerenciarAlunoComponent implements OnInit {
   alunos: Aluno[]; // Lista de alunos
-  novoAluno: Aluno = { email: '', id_aluno: 0, nm_aluno: '', endereco: '', telefone: '', id_turmas: 0 };
+  turmas: any[];
+  novoAluno: Aluno = { email: '', id_aluno: 0, nm_aluno: '', endereco: '', telefone: '', id_turmas: 0, turma: ''};
   editMode = false; // Modo de edição ativado ou desativado
   alunoEmEdicao: Aluno = null; // Aluno atualmente em edição
+  carregado = false
 
   constructor(
-    // Injetar o serviço de alunos aqui (exemplo: private alunoService: AlunoService)
+    private secretariaService: SecretariaService
   ) { }
 
   ngOnInit() {
     // Chamar o método para carregar a lista de alunos no início
     this.carregarAlunos();
+    this.carregarTurma();
   }
 
   carregarAlunos() {
     // Chamar o serviço de alunos para obter a lista de alunos
-    // this.alunoService.getAlunos().subscribe(alunos => {
-    //   this.alunos = alunos;
-    // });
-    
-    // Exemplo com dados estáticos
-    this.alunos = [
-      { email: 'aluno1@example.com', id_aluno: 1, nm_aluno: 'Aluno 1', endereco: 'Endereço 1', telefone: '1234567890', id_turmas: 1 },
-      { email: 'aluno2@example.com', id_aluno: 2, nm_aluno: 'Aluno 2', endereco: 'Endereço 2', telefone: '9876543210', id_turmas: 2 },
-    ];
+    this.secretariaService.getAlunos().subscribe(alunos => {
+      this.alunos = alunos;
+      this.carregado = true;
+    });
+  }
+
+  carregarTurma() {
+    // Chamar o serviço de alunos para obter a lista de alunos
+    this.secretariaService.getTurmas().subscribe(turmas => {
+      this.turmas = turmas;
+      this.carregado = true;
+    });
   }
 
   adicionarAluno() {
     // Chamar o serviço de alunos para adicionar o novo aluno
-    // this.alunoService.adicionarAluno(this.novoAluno).subscribe(() => {
-    //   this.carregarAlunos();
-    //   this.novoAluno = { email: '', id_aluno: 0, nm_aluno: '', endereco: '', telefone: '', id_turmas: 0 };
-    // });
+    this.secretariaService.addAluno(this.novoAluno).subscribe(() => {
+      this.carregarAlunos();
+      this.novoAluno = { email: '', id_aluno: 0, nm_aluno: '', endereco: '', telefone: '', id_turmas: 0, turma: '' };
+    });
 
     // Exemplo: adicionar o aluno diretamente à lista de alunos
-    this.alunos.push(this.novoAluno);
-    this.novoAluno = { email: '', id_aluno: 0, nm_aluno: '', endereco: '', telefone: '', id_turmas: 0 };
+    // this.alunos.push(this.novoAluno);
+    // this.novoAluno = { email: '', id_aluno: 0, nm_aluno: '', endereco: '', telefone: '', id_turmas: 0, turma: '' };
   }
 
   editarAluno(aluno: Aluno) {
+    console.log(aluno)
+    this.alunoEmEdicao = aluno;
     this.editMode = true;
-    this.alunoEmEdicao = { ...aluno };
   }
 
   salvarEdicao() {
@@ -89,4 +97,5 @@ interface Aluno {
   endereco: string;
   telefone: string;
   id_turmas: number;
+  turma: string;
 }
