@@ -24,7 +24,8 @@ import { VisualizarAulasAlunoComponent } from './aluno/visualizar-aulas-aluno/vi
   imports: [
     CommonModule,
     RouterModule,
-    HttpClientModule
+    HttpClientModule,
+    FormsModule
   ],
   declarations: [
     SistemaComponent, 

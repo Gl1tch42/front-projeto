@@ -29,7 +29,7 @@ export class GerenciarAlunoComponent implements OnInit {
     // Chamar o serviço de alunos para obter a lista de alunos
     this.secretariaService.getAlunos().subscribe(alunos => {
       this.alunos = alunos;
-      this.carregado = true;
+      // this.carregado = true;
     });
   }
 
@@ -43,14 +43,12 @@ export class GerenciarAlunoComponent implements OnInit {
 
   adicionarAluno() {
     // Chamar o serviço de alunos para adicionar o novo aluno
-    this.secretariaService.addAluno(this.novoAluno).subscribe(() => {
+    let aluno = { email: this.novoAluno.email, nm_aluno: this.novoAluno.nm_aluno, endereco: this.novoAluno.endereco, telefone: this.novoAluno.telefone, id_turmas: this.novoAluno.id_turmas, faltas: '0' };
+    console.log(aluno)
+    this.secretariaService.addAluno(aluno).subscribe(() => {
       this.carregarAlunos();
       this.novoAluno = { email: '', id_aluno: 0, nm_aluno: '', endereco: '', telefone: '', id_turmas: 0, turma: '' };
     });
-
-    // Exemplo: adicionar o aluno diretamente à lista de alunos
-    // this.alunos.push(this.novoAluno);
-    // this.novoAluno = { email: '', id_aluno: 0, nm_aluno: '', endereco: '', telefone: '', id_turmas: 0, turma: '' };
   }
 
   editarAluno(aluno: Aluno) {
@@ -61,17 +59,11 @@ export class GerenciarAlunoComponent implements OnInit {
 
   salvarEdicao() {
     // Chamar o serviço de alunos para salvar as alterações do aluno em edição
-    // this.alunoService.editarAluno(this.alunoEmEdicao).subscribe(() => {
-    //   this.carregarAlunos();
-    //   this.cancelarEdicao();
-    // });
-
-    // Exemplo: atualizar o aluno diretamente na lista de alunos
-    const index = this.alunos.findIndex(aluno => aluno.id_aluno === this.alunoEmEdicao.id_aluno);
-    if (index !== -1) {
-      this.alunos[index] = { ...this.alunoEmEdicao };
-    }
-    this.cancelarEdicao();
+    let aluno = { email: this.alunoEmEdicao.email, id_aluno: this.alunoEmEdicao.id_aluno, nm_aluno: this.alunoEmEdicao.nm_aluno, endereco: this.alunoEmEdicao.endereco, telefone: this.alunoEmEdicao.telefone, id_turmas: this.alunoEmEdicao.id_turmas, faltas: '0'  };
+    this.secretariaService.editarAluno(aluno).subscribe(() => {
+      this.carregarAlunos();
+      this.cancelarEdicao();
+    });
   }
 
   cancelarEdicao() {
@@ -80,13 +72,9 @@ export class GerenciarAlunoComponent implements OnInit {
   }
 
   excluirAluno(aluno: Aluno) {
-    // Chamar o serviço de alunos para excluir o aluno
-    // this.alunoService.excluirAluno(aluno.id_aluno).subscribe(() => {
-    //   this.carregarAlunos();
-    // });
-
-    // Exemplo: remover o aluno diretamente da lista de alunos
-    this.alunos = this.alunos.filter(a => a.id_aluno !== aluno.id_aluno);
+    this.secretariaService.excluirAluno(aluno.id_aluno).subscribe(() => {
+      this.carregarAlunos();
+    });
   }
 }
 

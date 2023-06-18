@@ -36,25 +36,33 @@
       <div *ngIf="!editMode">
         <div class="form-group">
           <label>Email:</label>
-          <input [(ngModel)]="novoAluno.email" [value]="alunoEmEdicao.email" type="text" class="form-control" [ngModelOptions]="{standalone: true}">
+          <input [(ngModel)]="novoAluno.email" type="text" class="form-control" [ngModelOptions]="{standalone: true}">
         </div>
 
         <div class="form-group">
           <label>Nome:</label>
-          <input [(ngModel)]="novoAluno.nm_aluno" [value]="alunoEmEdicao.nm_aluno" type="text" class="form-control" [ngModelOptions]="{standalone: true}">
+          <input [(ngModel)]="novoAluno.nm_aluno" type="text" class="form-control" [ngModelOptions]="{standalone: true}">
         </div>
 
         <div class="form-group">
           <label>Endereço:</label>
-          <input [(ngModel)]="novoAluno.endereco" [value]="alunoEmEdicao.endereco" type="text" class="form-control" [ngModelOptions]="{standalone: true}">
+          <input [(ngModel)]="novoAluno.endereco" type="text" class="form-control" [ngModelOptions]="{standalone: true}">
         </div>
 
         <div class="form-group">
           <label>Telefone:</label>
-          <input [(ngModel)]="novoAluno.telefone" [value]="alunoEmEdicao.telefone" type="text" class="form-control" [ngModelOptions]="{standalone: true}">
+          <input [(ngModel)]="novoAluno.telefone" type="text" class="form-control" [ngModelOptions]="{standalone: true}">
         </div>
 
-        <button (click)="adicionarAluno()" class="btn btn-success">Adicionar</button>
+        <div class="form-group">
+          <label>turma:</label>
+          <select [(ngModel)]="novoAluno.id_turmas" style="margin-left: 1em;">
+            <option [value]="0" [selected]="novoAluno.id_turmas == 0"> selecione </option>
+            <option *ngFor="let turma of this.turmas" [value]="turma.id_turmas" [selected]="novoAluno.id_turmas == turma.id_turmas"> {{turma.nm_turma}} </option>
+          </select>
+        </div>
+
+        <button style="margin-top: 1em;" (click)="adicionarAluno()" class="btn btn-success">Adicionar</button>
       </div>
 
       <div *ngIf="editMode">
@@ -62,22 +70,22 @@
 
         <div class="form-group">
           <label>Email:</label>
-          <input [(ngModel)]="alunoEmEdicao.email" [value]="alunoEmEdicao.email" type="text" class="form-control" [ngModelOptions]="{standalone: true}">
+          <input [(ngModel)]="alunoEmEdicao.email" type="text" class="form-control" [ngModelOptions]="{standalone: true}">
         </div>
 
         <div class="form-group">
           <label>Nome:</label>
-          <input [(ngModel)]="alunoEmEdicao.nm_aluno" [value]="alunoEmEdicao.nm_aluno" type="text" class="form-control" [ngModelOptions]="{standalone: true}">
+          <input [(ngModel)]="alunoEmEdicao.nm_aluno" type="text" class="form-control" [ngModelOptions]="{standalone: true}">
         </div>
 
         <div class="form-group">
           <label>Endereço:</label>
-          <input [(ngModel)]="alunoEmEdicao.endereco" [value]="alunoEmEdicao.endereco" type="text" class="form-control" [ngModelOptions]="{standalone: true}">
+          <input [(ngModel)]="alunoEmEdicao.endereco" type="text" class="form-control" [ngModelOptions]="{standalone: true}">
         </div>
 
         <div class="form-group">
           <label>Telefone:</label>
-          <input [(ngModel)]="alunoEmEdicao.telefone" [value]="alunoEmEdicao.telefone" type="text" class="form-control" [ngModelOptions]="{standalone: true}">
+          <input [(ngModel)]="alunoEmEdicao.telefone" type="text" class="form-control" [ngModelOptions]="{standalone: true}">
         </div>
 
         <div class="form-group">

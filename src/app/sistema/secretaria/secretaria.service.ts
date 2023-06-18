@@ -17,11 +17,11 @@ export class SecretariaService {
 
   //controle
 
-  addAluno(aluno: Aluno): Observable<any> {
+  addAluno(aluno: any): Observable<any> {
     return this.httpCliente.post<any>(this.URL+'aluno/InserirAluno', {aluno:aluno});
   }
 
-  editarAluno(aluno: Aluno): Observable<any> {
+  editarAluno(aluno: any): Observable<any> {
     return this.httpCliente.post<any>(this.URL+'aluno/UpdateAluno',{ aluno: aluno });
   }
 
