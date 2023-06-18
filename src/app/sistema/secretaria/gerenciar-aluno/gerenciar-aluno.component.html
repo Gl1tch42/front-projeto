@@ -20,7 +20,7 @@
         <td>{{ aluno.telefone }}</td>
         <td>{{ aluno.turma }}</td>
         <td>
-          <button (click)="editarAluno(aluno)" class="btn btn-primary" *ngIf="!editMode">Editar</button>
+          <button style="margin-right: 1em;" (click)="editarAluno(aluno)" class="btn btn-primary" *ngIf="!editMode">Editar</button>
           <button (click)="excluirAluno(aluno)" class="btn btn-danger">Excluir</button>
         </td>
       </tr>
