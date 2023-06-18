@@ -31,7 +31,21 @@ export class SecretariaService {
   //
 
   //professor
+  getProfessores(): Observable<any> {
+    return this.httpCliente.get<any>(this.URL + 'professor/BuscarProfessor');
+  }
   //controle
+  addProfessor(professor: any): Observable<any> {
+    return this.httpCliente.post<any>(this.URL+'professor/InserirProfessor', {professor: professor});
+  }
+
+  editarProfessor(professor: any): Observable<any> {
+    return this.httpCliente.post<any>(this.URL+'professor/UpdateProfessor',{ professor: professor });
+  }
+
+  excluirProfessor(id): Observable<any> {
+    return this.httpCliente.post<any>(this.URL+'professor/DeletarProfessor', { id: id });
+  }
   //
 
   //turma
