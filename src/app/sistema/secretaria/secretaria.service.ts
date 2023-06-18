@@ -53,6 +53,24 @@ export class SecretariaService {
     return this.httpCliente.post<any>(this.URL+'turmas/DeletarTurma', { id: id });
   }
   //
+
+  //disciplinas
+  getDisciplinas(): Observable<any> {
+    return this.httpCliente.get<any>(this.URL + 'disciplinas/BuscarDisciplinas');
+  }
+  //controle
+  addDisciplinas(disciplinas): Observable<any> {
+    return this.httpCliente.post<any>(this.URL+'disciplinas/InserirDisciplinas', { disciplina : disciplinas });
+  }
+
+  editarDisciplinas(disciplinas): Observable<any> {
+    return this.httpCliente.post<any>(this.URL+'disciplinas/UpdateDisciplinas',{ disciplina: disciplinas });
+  }
+
+  excluirDisciplinas(id): Observable<any> {
+    return this.httpCliente.post<any>(this.URL+'disciplinas/DeletarDisciplinas', { id: id });
+  }
+  //
 }
 
 interface Aluno {

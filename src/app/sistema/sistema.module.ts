@@ -12,7 +12,7 @@ import { GerenciarTurmaComponent } from 'src/app/sistema/secretaria/gerenciar-tu
 import { GerenciarProfessorComponent } from 'src/app/sistema/secretaria/gerenciar-professor/gerenciar-professor.component';
 import { GerenciarAlunoComponent } from 'src/app/sistema/secretaria/gerenciar-aluno/gerenciar-aluno.component';
 import { GerenciarAulaComponent } from 'src/app/sistema/secretaria/gerenciar-aula/gerenciar-aula.component';
-
+import { GerenciarDisciplinasComponent } from 'src/app/sistema/secretaria/gerenciar-disciplinas/gerenciar-disciplinas.component';
 
 
 import { FormsModule } from '@angular/forms';
@@ -39,7 +39,8 @@ import { VisualizarAulasAlunoComponent } from './aluno/visualizar-aulas-aluno/vi
     GerenciarTurmaComponent,
     GerenciarProfessorComponent,
     GerenciarAlunoComponent,
-    GerenciarAulaComponent
+    GerenciarAulaComponent,
+    GerenciarDisciplinasComponent
   ],
   exports: [SistemaComponent]
 })

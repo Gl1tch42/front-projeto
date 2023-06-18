@@ -13,6 +13,7 @@ import { GerenciarAlunoComponent } from './sistema/secretaria/gerenciar-aluno/ge
 import { GerenciarTurmaComponent } from './sistema/secretaria/gerenciar-turma/gerenciar-turma.component';
 import { GerenciarProfessorComponent } from './sistema/secretaria/gerenciar-professor/gerenciar-professor.component';
 import { GerenciarAulaComponent } from './sistema/secretaria/gerenciar-aula/gerenciar-aula.component';
+import { GerenciarDisciplinasComponent } from './sistema/secretaria/gerenciar-disciplinas/gerenciar-disciplinas.component';
 
 const routes: Routes = [
   { path: 'login', component: LoginComponent },
@@ -28,6 +29,7 @@ const routes: Routes = [
     { path: 'gerenciar-aula', component: GerenciarAulaComponent },
     { path: 'gerenciar-professor', component: GerenciarProfessorComponent },
     { path: 'gerenciar-turma', component: GerenciarTurmaComponent },
+    { path: 'gerenciar-disciplina', component: GerenciarDisciplinasComponent },
 
 
     
