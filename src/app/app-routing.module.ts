@@ -10,6 +10,9 @@ import { VisualizarAulasDisponiveisComponent } from './sistema/professor/visuali
 import { BoletimEscolarComponent } from './sistema/aluno/boletim-escolar/boletim-escolar.component';
 import { VisualizarAulasAlunoComponent } from './sistema/aluno/visualizar-aulas-aluno/visualizar-aulas-aluno.component';
 import { GerenciarAlunoComponent } from './sistema/secretaria/gerenciar-aluno/gerenciar-aluno.component';
+import { GerenciarTurmaComponent } from './sistema/secretaria/gerenciar-turma/gerenciar-turma.component';
+import { GerenciarProfessorComponent } from './sistema/secretaria/gerenciar-professor/gerenciar-professor.component';
+import { GerenciarAulaComponent } from './sistema/secretaria/gerenciar-aula/gerenciar-aula.component';
 
 const routes: Routes = [
   { path: 'login', component: LoginComponent },
@@ -21,6 +24,11 @@ const routes: Routes = [
     { path: 'visualizarAulaAluno', component: VisualizarAulasAlunoComponent },
 
     { path: 'gerenciar-alunos', component: GerenciarAlunoComponent },
+
+    { path: 'gerenciar-aula', component: GerenciarAulaComponent },
+    { path: 'gerenciar-professor', component: GerenciarProfessorComponent },
+    { path: 'gerenciar-turma', component: GerenciarTurmaComponent },
+
 
     
   ] },
