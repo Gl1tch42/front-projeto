@@ -7,7 +7,7 @@ import { LocalstorageService } from 'src/app/auth/localstorage.service';
   providedIn: 'root'
 })
 export class VizualizarAulasAlunoService {
-  readonly URL = 'http://localhost:5000/api/';
+  readonly URL = 'https://sistemaescolaapi.azurewebsites.net/api/';
 
   constructor(private httpCliente: HttpClient, private localstorageService: LocalstorageService) { }
 

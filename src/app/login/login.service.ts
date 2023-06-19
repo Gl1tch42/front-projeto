@@ -7,7 +7,7 @@ import { Observable } from 'rxjs';
 })
 export class LoginService {
 
-  readonly URL = 'http://localhost:5000/api/';
+  readonly URL = 'https://sistemaescolaapi.azurewebsites.net/api/';
 
   constructor(private httpCliente: HttpClient,) { }
 

@@ -30,7 +30,7 @@ export class GerenciarAlunoComponent implements OnInit {
     this.secretariaService.getAlunos().subscribe(alunos => {
       this.alunos = alunos;
       // this.carregado = true;
-    });
+    }, err => console.log(err));
   }
 
   carregarTurma() {

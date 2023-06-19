@@ -22,7 +22,7 @@ interface Disciplina {
   providedIn: 'root'
 })
 export class BoletimEscolarService {
-  readonly URL = 'http://localhost:5000/api/';
+  readonly URL = 'https://sistemaescolaapi.azurewebsites.net/api/';
 
 
   constructor(private httpCliente: HttpClient, private localstorageService: LocalstorageService) { }
